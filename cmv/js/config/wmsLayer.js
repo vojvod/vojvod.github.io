@@ -2,7 +2,7 @@ define({
     map: true,
     mapClickMode: true,
     mapRightClickMenu: true,
-    proxy_url: 'proxy/PHP/proxy.php',
+    proxy_url: 'proxy/proxy.ashx',
     wmslayers: [
         {
             name: 'Layer1_demo',
