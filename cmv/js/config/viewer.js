@@ -7,7 +7,7 @@ define([
 ], function (units, Extent, esriConfig, GeometryService, ImageParameters) {
 
     // url to your proxy page, must be on same machine hosting you app. See proxy folder for readme.
-    esriConfig.defaults.io.proxyUrl = 'proxy/PHP/proxy.php';
+    esriConfig.defaults.io.proxyUrl = 'proxy/proxy.ashx',
     esriConfig.defaults.io.alwaysUseProxy = false;
     // url to your geometry server.
     esriConfig.defaults.geometryService = new GeometryService('http://sampleserver5.arcgisonline.com/arcgis/rest/services/Utilities/Geometry/GeometryServer');
