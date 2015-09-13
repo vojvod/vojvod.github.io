@@ -1,7 +1,7 @@
 define({
     map: true,
     identifyLayerInfos: true,
-    proxy_url: 'http://localhost/cmv/proxy/PHP/proxy.php',
+    proxy_url: 'proxy/proxy.ashx',
 
     layers2render: [
         {
