@@ -1,0 +1,52 @@
+<div class="gis_RendererDijit">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="gis_RendererDijitContainerNode" class="gis_RendererDijitContentPane">
+		
+		<div class="contDiv">
+			<label><b>${i18n.selectQuery}</b></label><br/>	
+			<input type="select" data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedLayer',autoComplete:true,required:true,searchAttr:'name',maxHeight:250,'class':'querySelect'" data-dojo-attach-point="querySelectEpipedo" data-dojo-attach-event="onChange:_onQuerySelectEpipedoChange"/>
+		</div>
+		
+		<div class="contDiv">
+			<label><b>${i18n.selectQueryType}</b></label><br/>	
+			<input type="select" data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedField',autoComplete:true,required:true,searchAttr:'name','class':'querySelect'" data-dojo-attach-point="querySelectField" data-dojo-attach-event="onChange:_onQueryFieldChange"/>
+		</div>
+		
+		<div class="contDiv">
+			<label><b>${i18n.selectQueryMethod}</b></label><br/>	
+			<select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedMethod',autoComplete:true,required:true,searchAttr:'value','class':'querySelect'" data-dojo-attach-point="querySelectMethod" data-dojo-attach-event="onChange:_onQuerySelectMethod">
+				<option value="natural-breaks">Natural Breaks</option>
+				<option value="equal-interval">Equal Interval</option>
+				<option value="quantile">Quantile</option>
+				<option value="standard-deviation">Standard Deviation</option>
+				<option value="geometrical-interval">Geometrical Interval</option>
+			</select>
+		</div>
+
+		<div class="contDiv" id="contDiv1">
+			<label><b>${i18n.selectQueryNumberOfClasses}</b></label><br/>	
+			<select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedMethod',autoComplete:true,required:true,searchAttr:'value','class':'querySelect'" data-dojo-attach-point="querySelectNumberOfClasses">
+				<option value="2">2</option>
+				<option value="4">4</option>
+				<option value="6">6</option>
+				<option value="8">8</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+
+        <div class="contDiv" id="contDiv2">
+            <label><b>${i18n.selectStandardDeniationInterval}</b></label><br/>
+            <select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedMethod',autoComplete:true,required:true,searchAttr:'value','class':'querySelect'" data-dojo-attach-point="querySelectStandardDeniationInterval">
+                <option value="1">1</option>
+                <option value="0.5">0.5</option>
+                <option value="0.33">0.33</option>
+                <option value="0.25">0.25</option>
+            </select>
+        </div>
+		
+		<div align="center" class="contDiv">
+			<button data-dojo-attach-point="setRendererButton" data-dojo-type="dijit/form/Button">${i18n.buttonApply}</button>
+			<button data-dojo-attach-point="initRendererButton" data-dojo-type="dijit/form/Button">${i18n.buttonReset}</button>
+		</div>
+		
+	</div>	
+</div>

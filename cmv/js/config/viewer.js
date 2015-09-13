@@ -1,16 +1,16 @@
 define([
-    'esri/units',
-    'esri/geometry/Extent',
-    'esri/config',
-    'esri/tasks/GeometryService',
-    'esri/layers/ImageParameters'
+   'esri/units',
+   'esri/geometry/Extent',
+   'esri/config',
+   'esri/tasks/GeometryService',
+   'esri/layers/ImageParameters'
 ], function (units, Extent, esriConfig, GeometryService, ImageParameters) {
 
     // url to your proxy page, must be on same machine hosting you app. See proxy folder for readme.
-    esriConfig.defaults.io.proxyUrl = 'http://vojvod.github.io/cmv/proxy/PHP/proxy.php';
+    esriConfig.defaults.io.proxyUrl = 'proxy/PHP/proxy.php';
     esriConfig.defaults.io.alwaysUseProxy = false;
     // url to your geometry server.
-    esriConfig.defaults.geometryService = new GeometryService('http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer');
+    esriConfig.defaults.geometryService = new GeometryService('http://sampleserver5.arcgisonline.com/arcgis/rest/services/Utilities/Geometry/GeometryServer');
 
     //image parameters for dynamic services, set to png32 for higher quality exports.
     var imageParameters = new ImageParameters();
@@ -29,7 +29,7 @@ define([
             zoom: 5,
             sliderStyle: 'small'
         },
-         panes: {
+        panes: {
         // 	left: {
         // 		splitter: true
         // 	},
@@ -40,16 +40,16 @@ define([
         // 		splitter: true,
         // 		collapsible: true
         // 	},
-        	bottom: {
-        		id: 'sidebarBottom',
-        		placeAt: 'outer',
-        		splitter: true,
-        		collapsible: true,
-        		region: 'bottom',
+            bottom: {
+                id: 'sidebarBottom',
+                placeAt: 'outer',
+                splitter: true,
+                collapsible: true,
+                region: 'bottom',
                 open: true,
                 style: 'height:200px;',
                 content: '<div id="attributesContainer"></div>'
-        	}
+            }
         // 	top: {
         // 		id: 'sidebarTop',
         // 		placeAt: 'outer',
@@ -76,10 +76,16 @@ define([
             },
             editorLayerInfos: {
                 disableGeometryUpdate: false
+            },
+            legendLayerInfos: {
+                exclude: false,
+                layerInfo: {
+                    title: 'My layer'
+                }
             }
-        }, {
+  }, {
             type: 'feature',
-            url: 'http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0',
+            url: 'http://sampleserver6.arcgisonline.com/arcgis/rest/services/SF311/FeatureServer/0',
             title: 'San Francisco 311 Incidents',
             options: {
                 id: 'sf311Incidents',
@@ -88,21 +94,25 @@ define([
                 outFields: ['req_type', 'req_date', 'req_time', 'address', 'district'],
                 mode: 0
             }
-        },  {
+  }, {
             type: 'dynamic',
-            url: 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/PublicSafety/PublicSafetyOperationalLayers/MapServer',
+            url: 'http://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer',
             title: 'Louisville Public Safety',
             options: {
                 id: 'louisvillePubSafety',
                 opacity: 1.0,
-                visible: true,
+                visible: false,
                 imageParameters: imageParameters
             },
             identifyLayerInfos: {
-                layerIds: [2, 4, 5, 8, 12, 21]
+                layerIds: [0, 1, 2, 3]
+            },
+            legendLayerInfos: {
+                layerInfo: {
+                    hideLayers: [0]
+                }
             }
-        },
-        {
+  }, {
             type: 'dynamic',
             url: 'http://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/MapServer',
             title: 'Damage Assessment',
@@ -112,12 +122,15 @@ define([
                 visible: true,
                 imageParameters: imageParameters
             },
+            legendLayerInfos: {
+                exclude: true
+            },
             layerControlLayerInfos: {
                 swipe: true,
                 metadataUrl: true,
                 expanded: true
             }
-        }],
+  }],
         // set include:true to load. For titlePane type set position the the desired order in the sidebar
         widgets: {
             growler: {
@@ -355,7 +368,7 @@ define([
                     map: true,
                     mapRightClickMenu: true,
                     options: {
-                        routeTaskUrl: 'http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route',
+                        routeTaskUrl: 'http://mapsrv9.terra.gr/arcgis/rest/services/Live/RoutingGR_WGS84/NAServer/Route',
                         routeParams: {
                             directionsLanguage: 'en-US',
                             directionsLengthUnits: units.MILES
@@ -413,8 +426,37 @@ define([
                 title: 'Help',
                 options: {}
             },
-
-
+            renderer: {
+                include: true,
+                id: 'renderer',
+                type: 'titlePane',
+                canFloat: false,
+                path: 'gis/dijit/Renderer',
+                title: 'Dynamic Feature Layer Renderer',
+                open: false,
+                position: 10,
+                options: 'config/renderer'
+            },
+            wmsLayer: {
+                include: true,
+                id: 'wmsLayer',
+                type: 'titlePane',
+                canFloat: false,
+                position: 10,
+                path: 'gis/dijit/WMSLayer',
+                title: 'Add WMS Layer',
+                options: 'config/wmsLayer'
+            },
+            wmsLayer2: {
+                include: true,
+                id: 'wmsLayer2',
+                type: 'titlePane',
+                canFloat: false,
+                position: 10,
+                path: 'gis/dijit/WMSLayer2',
+                title: 'Add WMS Layer2',
+                options: 'config/wmsLayer2'
+            },
 
             search: {
                 include: true,
@@ -450,11 +492,9 @@ define([
                 id: 'export',
                 type: 'floating',
                 path: 'gis/dijit/Export',
-                title: 'Αποθήκευση',
+                title: '??????????',
                 options: {}
             }
-
-
 
         }
     };
