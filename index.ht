@@ -541,7 +541,7 @@
         <div class="container">
 
             <!--contact info start-->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-6 col-md-4">
                 <h4>Contact details</h4>
 
                 <p><i class="fa fa-map-marker"></i>Thessaloniki, Greece</p>
@@ -553,9 +553,14 @@
                 <p><i class="fa fa-link"></i> <a href="http://vojvod.github.io">vojvod.github.io</a></p>
             </div>
             <!--contact info end-->
+            
+            <div class="col-xs-12 col-md-8 row mapArea">
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://maps.google.com/?ie=UTF8&amp;ll=40.63935,22.944607&amp;spn=0.01134,0.026157&amp;t=m&amp;z=13&amp;output=embed"></iframe>
+            </div>
 
             <!--contact form start-->
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 conForm">
+            <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 conForm">
                 <h4>Shoot a message!</h4>
 
                 <div id="message"></div>
@@ -570,14 +575,14 @@
 
                     <div id="simple-msg"></div>
                 </form>
-            </div>
+            </div> -->
             <!--contact form end-->
 
         </div>
-        <div class="row mapArea">
+        <!--<div class="row mapArea">
             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                     src="https://maps.google.com/?ie=UTF8&amp;ll=40.63935,22.944607&amp;spn=0.01134,0.026157&amp;t=m&amp;z=13&amp;output=embed"></iframe>
-        </div>
+        </div>-->
     </section>
     <!--contact end-->
 
