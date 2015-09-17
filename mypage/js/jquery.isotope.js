@@ -3,12 +3,10 @@
  * An exquisite jQuery plugin for magical layouts
  * http://isotope.metafizzy.co
  *
- * Commercial use requires one-time purchase of a commercial license
- * http://isotope.metafizzy.co/docs/license.html
+ * Commercial use requires one-time license fee
+ * http://metafizzy.co/#licenses
  *
- * Non-commercial use is licensed under the MIT License
- *
- * Copyright 2013 Metafizzy
+ * Copyright 2012 David DeSandro / Metafizzy
  */
 
 /*jshint asi: true, browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true */
@@ -93,7 +91,7 @@
                         .appendTo('head'),
             $div = $('<div id="modernizr" />').appendTo('html');
 
-        test = $div.height() === 3;
+        test = $div.height() === 6;
 
         $div.remove();
         $style.remove();
