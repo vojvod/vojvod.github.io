@@ -1031,7 +1031,7 @@ ul.portfolioContainer {
 ul.portfolioContainer li {
     display: block;
     min-height: 90px;
-    max-height: 800px;
+    max-height: 8000px;
     padding: 0px;
     margin: 5px;
     /*cursor: pointer;*/
