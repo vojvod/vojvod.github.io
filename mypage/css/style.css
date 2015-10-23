@@ -1580,9 +1580,24 @@ ul.portfolioContainer li:hover span.hoverBox .linKed {
     }
 }
 
+
+@media screen and (max-width: 992px) {
+    .col-md-3{
+        display: none;
+    }
+
+    .aboutme {
+        padding: 15px;
+    }
+
+    .proPic img {
+        margin: 0 auto;
+    }
+}
+
 @media screen and (max-width: 810px) {
     .col-md-3{
-        display: block;
+        display: none;
     }
 
 
@@ -1607,42 +1622,11 @@ ul.portfolioContainer li:hover span.hoverBox .linKed {
     }
 }
 
-@media screen and (max-width: 992px) {
-    .col-md-3{
-        display: block;
-    }
-
-    .aboutme {
-        padding: 15px;
-    }
-
-    .proPic img {
-        margin: 0 auto;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .col-md-3{
-        display: block;
-    }
-
-    .conForm input.col-sm-6 {
-        width: 48.5%;
-    }
-
-    .conForm input.col-lg-6 {
-        width: 48.5%;
-    }
-
-    .aboutme {
-        /*padding:15px;*/
-    }
-}
-
 @media screen and (max-width: 768px) {
     .col-md-3{
-        display: block;
+        display: none;
     }
+	
     .navbar-wrapper .container, .navwrapper .container {
         padding-right: 15px;
         padding-left: 15px;
@@ -1660,7 +1644,7 @@ ul.portfolioContainer li:hover span.hoverBox .linKed {
 
 @media screen and (max-width: 767px) {
     .col-md-3{
-        display: block;
+        display: none;
     }
 
     .navbar-header {
